@@ -1,0 +1,14 @@
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore compiled files
+*.o
+*.exe
+
+# Ignore environment or credentials
+.env
+
+
+# Ignore data for safety ?
+/data/

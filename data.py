@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt  # only needed for plotting
 import torch
 from mpl_toolkits.axes_grid1 import ImageGrid  # only needed for plotting
 
-DATA_PATH = "data/corruptmnist"
-
+#DATA_PATH = "data/corruptmnist"
+DATA_PATH = "C:/Users/Notandi/mlops/testformlops/data/corruptedmnist"
 
 def corrupt_mnist() -> tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]:
     """Return train and test dataloaders for corrupt MNIST."""
