@@ -82,3 +82,4 @@ def corrupt_mnist() -> tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]
 
 if __name__ == "__main__":
     typer.run(preprocess_data)
+
