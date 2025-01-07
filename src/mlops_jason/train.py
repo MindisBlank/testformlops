@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import torch
 import typer
-from data import corrupt_mnist
-from model import MyAwesomeModel
+from .data import corrupt_mnist
+from .model import MyAwesomeModel
 
 DATA_ROOT = "C:/Users/Notandi/mlops/testformlops"  # path
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
@@ -51,5 +51,11 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
     fig.savefig(f"{DATA_ROOT}/reports/figures/training_statistics.png")
 
 
-if __name__ == "__main__":
+def main():
+    """
+    A tiny wrapper for typer to call 'train'
+    """
     typer.run(train)
+
+if __name__ == "__main__":
+    main()

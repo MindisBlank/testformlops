@@ -1,7 +1,7 @@
 import torch
 import typer
-from data import corrupt_mnist
-from model import MyAwesomeModel
+from .data import corrupt_mnist
+from .model import MyAwesomeModel
 
 DATA_ROOT = "C:/Users/Notandi/mlops/testformlops"  # path
 
@@ -28,6 +28,11 @@ def evaluate(model_checkpoint: str) -> None:
         total += target.size(0)
     print(f"Test accuracy: {correct / total}")
 
+def main():
+    """
+    A tiny wrapper for typer to call 'train'
+    """
+    typer.run(evaluate)
 
 if __name__ == "__main__":
-    typer.run(evaluate)
+    main()
