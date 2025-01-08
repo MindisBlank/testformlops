@@ -1,10 +1,13 @@
 import matplotlib.pyplot as plt
 import torch
 import typer
-from .data import corrupt_mnist
-from .model import MyAwesomeModel
+from mlops_jason.data import corrupt_mnist
+from mlops_jason.model import MyAwesomeModel
+from pathlib import Path
 
-DATA_ROOT = "C:/Users/Notandi/mlops/testformlops"  # path
+# Set the project root relative to the current file
+#DATA_ROOT = Path(__file__).resolve().parent.parent.parent  # Adjust based on file location
+
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 
@@ -42,13 +45,13 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
                 print(f"Epoch {epoch}, iter {i}, loss: {loss.item()}")
 
     print("Training complete")
-    torch.save(model.state_dict(), f"{DATA_ROOT}/models/model.pth")
+    torch.save(model.state_dict(), "models/model.pth")
     fig, axs = plt.subplots(1, 2, figsize=(15, 5))
     axs[0].plot(statistics["train_loss"])
     axs[0].set_title("Train loss")
     axs[1].plot(statistics["train_accuracy"])
     axs[1].set_title("Train accuracy")
-    fig.savefig(f"{DATA_ROOT}/reports/figures/training_statistics.png")
+    fig.savefig("reports/figures/training_statistics.png")
 
 
 def main():

@@ -3,7 +3,7 @@ import typer
 from .data import corrupt_mnist
 from .model import MyAwesomeModel
 
-DATA_ROOT = "C:/Users/Notandi/mlops/testformlops"  # path
+#DATA_ROOT = "C:/Users/Notandi/mlops/testformlops"  # path
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 

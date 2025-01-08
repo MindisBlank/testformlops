@@ -1,8 +1,9 @@
 import torch
 import typer
-
-DATA_ROOT = "C:/Users/Notandi/mlops/testformlops"  # path to project
-
+from pathlib import Path
+# Set the project root relative to the current file
+#DATA_ROOT = Path(__file__).resolve().parent.parent.parent  # Adjust based on file location
+DATA_PATH = "data/corruptmnist"
 
 def normalize(images: torch.Tensor) -> torch.Tensor:
     """
@@ -70,10 +71,10 @@ def corrupt_mnist() -> tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]
         tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]:
             A tuple of (train_set, test_set).
     """
-    train_images = torch.load(f"{DATA_ROOT}/data/processed/train_images.pt")
-    train_target = torch.load(f"{DATA_ROOT}/data/processed/train_target.pt")
-    test_images = torch.load(f"{DATA_ROOT}/data/processed/test_images.pt")
-    test_target = torch.load(f"{DATA_ROOT}/data/processed/test_target.pt")
+    train_images = torch.load("data/processed/train_images.pt")
+    train_target = torch.load("data/processed/train_target.pt")
+    test_images = torch.load("data/processed/test_images.pt")
+    test_target = torch.load("data/processed/test_target.pt")
 
     train_set = torch.utils.data.TensorDataset(train_images, train_target)
     test_set = torch.utils.data.TensorDataset(test_images, test_target)
