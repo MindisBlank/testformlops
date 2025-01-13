@@ -29,10 +29,10 @@ dev = {file = ['requirements_dev.txt']}
 line-length = 120
 select = ["I"]
 
-[tool.coverage.run]
-omit = ["tests/*"]
-
 [project.scripts]
 train = "mlops_jason.train:main"
 evaluate = "mlops_jason.evaluate:main"
 data = "mlops_jason.data:main"
+
+[tool.coverage.run]
+omit = ["tests/*"]
